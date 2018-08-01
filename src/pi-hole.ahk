@@ -2,16 +2,22 @@
 
 #NoEnv
 #SingleInstance Force
-#NoTrayIcon
+;#NoTrayIcon
 
 SetBatchLines -1
 
-global app := { author: "jNizM", licence: "MIT", ahk: "1.1.29.01", version: "18.07.28", name: "pi-hole" }
+global app := { author: "jNizM", licence: "MIT", ahk: "1.1.29.01", version: "18.07.31", name: "pi-hole" }
 
 global api     := "http://pi.hole/admin/api.php?summaryRaw&topItems&getForwardDestinations&getQueryTypes&auth="
 global auth    := ""  ; <-- WEBPASSWORD in /etc/pihole/setupVars.conf
 global refresh := 2000
 global WINVER  := RtlGetVersion()
+
+
+; MENU ==========================================================================================================================
+
+if (FileExist("pi-hole.ico"))
+	Menu, Tray, Icon, pi-hole.ico  ; by pi-hole.net
 
 
 ; GUI ===========================================================================================================================
